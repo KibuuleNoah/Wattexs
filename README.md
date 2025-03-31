@@ -1,4 +1,4 @@
-# Wattexs (WhatsApp Text Status)
+# Wattexs
 
 A web application that allows users to create custom whatsapp text status on backgrounds and download them as images.
 
@@ -57,7 +57,6 @@ A web application that allows users to create custom whatsapp text status on bac
 git clone https://github.com/yourusername/Wattexs.git
 cd Wattexs
 ```
-````
 
 ### 2. Create and Activate a Virtual Environment
 
