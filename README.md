@@ -1,4 +1,3 @@
-````markdown
 # Wattexs (WhatsApp Text Status)
 
 A web application that allows users to create custom whatsapp text status on backgrounds and download them as images.
