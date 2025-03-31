@@ -1,0 +1,63 @@
+* {
+  transition:
+    color,
+    background 0.5s ease-in-out;
+}
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+canvas {
+  max-width: 100%;
+}
+
+.bg-options {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.bg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 15px 0;
+}
+.bg-option {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition:
+    transform 0.2s,
+    border-color 0.2s;
+}
+.bg-option:hover {
+  transform: scale(1.05);
+  border-color: #4caf50;
+}
+.bg-option.selected {
+  border-color: #55efc4;
+  border-width: 3px;
+}
+.faded-ends {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}

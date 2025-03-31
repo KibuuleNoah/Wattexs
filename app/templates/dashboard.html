@@ -1,0 +1,110 @@
+{% extends "base.html" %} 
+
+{% block styles %}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %} 
+
+{% block content %}
+<div class="p-4">
+  <div class="container mx-auto">
+    <h1 class="text-3xl font-bold text-center mb-8">
+      Request Statistics Dashboard
+    </h1>
+
+    <!-- Summary Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <div class="card bg-primary text-primary-content">
+        <div class="card-body">
+          <h2 class="card-title">Total Requests</h2>
+          <p id="total-requests" class="text-4xl">0</p>
+        </div>
+      </div>
+
+      <div class="card bg-neutral text-neutral-content">
+        <div class="card-body">
+          <h2 class="card-title">Total Downloads</h2>
+          <p id="total-downloads" class="text-4xl">0</p>
+        </div>
+      </div>
+
+      <div class="card bg-secondary text-secondary-content">
+        <div class="card-body">
+          <h2 class="card-title">Today's Requests</h2>
+          <p id="today-requests" class="text-4xl">0</p>
+        </div>
+      </div>
+
+      <div class="card bg-accent text-accent-content">
+        <div class="card-body">
+          <h2 class="card-title">This Month's Requests</h2>
+          <p id="month-requests" class="text-4xl">0</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+      <div class="card bg-base-200">
+        <div class="card-body">
+          <h2 class="card-title">Daily Requests</h2>
+          <canvas id="dailyChart"></canvas>
+        </div>
+      </div>
+
+      <div class="card bg-base-200">
+        <div class="card-body">
+          <h2 class="card-title">Monthly Requests</h2>
+          <canvas id="monthlyChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tables Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div class="card bg-base-200">
+        <div class="card-body">
+          <h2 class="card-title">Endpoint Distribution</h2>
+          <div class="overflow-x-auto">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Endpoint</th>
+                  <th>Requests</th>
+                </tr>
+              </thead>
+              <tbody id="endpoints-table">
+                <!-- Filled by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-200">
+        <div class="card-body">
+          <h2 class="card-title">Method Distribution</h2>
+          <div class="overflow-x-auto">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Requests</th>
+                </tr>
+              </thead>
+              <tbody id="methods-table">
+                <!-- Filled by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %} 
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/dashboard.js')  }}"></script>
+{% endblock %}

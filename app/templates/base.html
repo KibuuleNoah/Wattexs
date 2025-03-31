@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wattexs | Tristar Moxie</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Load all fonts in one request -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Dancing+Script:wght@400;700&family=Lobster&family=Montserrat:wght@400;600&family=Oswald:wght@300;500&family=Pacifico&family=Playfair+Display:wght@400;700&family=Raleway:wght@100;400&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Boxicons CSS -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css')  }}"
+    />
+    {% block styles %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <!-- Main Content -->
+    <main class="w-w-9/10">{% block content %} {% endblock %}</main>
+    <!-- Footer -->
+    <footer
+      class="text-center text-gray-600 mt-6 flex items-center justify-center gap-1"
+    >
+      <i class="bx bx-copyright text-accent"></i>
+      <p>Made by Tristar Moxie | &copy; 2025 Wattexs</p>
+    </footer>
+
+    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <script>
+      eruda.init();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    {% block scripts %}{% endblock %}
+  </body>
+</html>

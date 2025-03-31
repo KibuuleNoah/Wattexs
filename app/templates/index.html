@@ -1,0 +1,139 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+<h1 class="text-3xl text-accent font-extrabold text-center">Wattexs</h1>
+<div class="flex justify-end items-center gap-2">
+  <button class="btn btn-circle" type="button" id="theme-toggle">
+    <i class="bx bx-sun text-accent text-xl"></i>
+  </button>
+</div>
+
+<div
+  class="flex justify-between w-full overflow-auto whitespace-nowrap space-x-2 px-3"
+>
+  <fieldset class="fieldset">
+    <legend class="fieldset-legend flex items-center gap-1">
+      <i class="bx bx-font-family text-accent"></i> Font Style
+    </legend>
+    <select
+      id="fontFamily"
+      class="select select-accent"
+      data-auto-update
+    ></select>
+  </fieldset>
+
+  <fieldset class="fieldset">
+    <legend class="fieldset-legend flex items-center gap-1">
+      <i class="bx bx-palette text-accent"></i> Text Color
+    </legend>
+    <input
+      class="input input-ghost"
+      type="color"
+      id="textColor"
+      value="#000000"
+      data-auto-update
+    />
+  </fieldset>
+</div>
+
+<div class="my-3">
+  <label class="font-extrabold text-accent text-center">
+    Text Alignment
+  </label>
+  <div class="flex justify-between w-full">
+    <button class="btn btn-accent" data-align="left">
+      <i class="bx bx-align-left"></i>
+    </button>
+    <button class="btn" data-align="center">
+      <i class="bx bx-align-middle"></i>
+    </button>
+    <button class="btn" data-align="right">
+      <i class="bx bx-align-right"></i>
+    </button>
+    <button class="btn" data-align="justify">
+      <i class="bx bx-align-justify"></i>
+    </button>
+  </div>
+</div>
+
+<div
+  class="flex w-full overflow-auto whitespace-nowrap space-x-2 my-4 faded-ends"
+  data-backgrounds="{{ backgrounds }}"
+  id="bgOptions"
+>
+  <!-- Background options will be added here -->
+</div>
+
+<div class="my-2 flex justify-center text-center">
+  <div class="mx-auto">
+    <div class="flex justify-between items-center p-2">
+      <div class="flex items-center gap-2">
+        <input
+          class="checkbox checkbox-accent"
+          type="checkbox"
+          id="textOverlay"
+          data-auto-update
+        />
+        <label for="textOverlay" class="flex items-center gap-1">
+          <i class="bx bx-layer text-accent"></i> Overlay
+        </label>
+      </div>
+      <div>
+        <button
+          id="downloadBtn"
+          class="btn btn-accent flex items-center gap-1"
+        >
+          <i class="bx bx-download text-base"></i> Download Image
+        </button>
+      </div>
+    </div>
+    <canvas
+      class="border border-accent rounded-sm w-80 aspect-ratio-16/9"
+      id="textCanvas"
+    ></canvas>
+    <div class="w-full max-w-xs mt-1">
+      <input
+        id="fontSize"
+        type="range"
+        min="50"
+        max="80"
+        value="55"
+        class="range range-accent"
+        step="2"
+        data-auto-update
+      />
+      <div class="flex justify-between px-2.5 mt-2 text-xs">
+        <span>|</span>
+        <span>|</span>
+        <span>|</span>
+      </div>
+      <div class="flex justify-between px-2.5 mt-2 text-xs">
+        <span>sm</span>
+        <span>md</span>
+        <span>lg</span>
+      </div>
+    </div>
+
+    <div class="my-2 space-y-2">
+      <div>
+        <textarea
+          id="textInput"
+          class="textarea textarea-bordered textarea-accent textarea-lg w-80 aspect-ratio-16/9"
+          placeholder="Enter your text here..."
+        ></textarea>
+      </div>
+      <div>
+        <button id="updateBtn" class="btn btn-accent">
+          <i class="bx bx-refresh text-base"></i> Update Text
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/index.js')  }}"></script>
+{% endblock %}

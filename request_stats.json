@@ -1,0 +1,16 @@
+{
+  "total": 7,
+  "downloads": 0,
+  "daily": {
+    "2025-03-31": 7
+  },
+  "monthly": {
+    "2025-03": 7
+  },
+  "endpoints": {
+    "/": 7
+  },
+  "methods": {
+    "GET": 7
+  }
+}
