@@ -3,15 +3,17 @@ from datetime import datetime
 from collections import defaultdict
 from flask import request
 
+REQUEST_STATS_FILE = 'request_stats.json'
+
 
 class RequestTracker:
-    # File to store the request data
+
     def __init__(self) -> None:
-        self.REQUEST_DATA_FILE = 'request_stats.json'
+        ...
 
     def _load_request_data(self) -> dict:
         try:
-            with open(self.REQUEST_DATA_FILE, 'r') as f:
+            with open(REQUEST_STATS_FILE, 'r') as f:
                 return json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             # Initialize with default structure if file doesn't exist or is invalid
@@ -26,17 +28,14 @@ class RequestTracker:
 
     def _save_request_data(self, data: dict):
         # Convert defaultdicts to regular dicts for JSON serialization
-        data['daily'] = dict(data['daily'])
-        data['monthly'] = dict(data['monthly'])
-        data['endpoints'] = dict(data['endpoints'])
-        data['methods'] = dict(data['methods'])
+        for key in ["daily", "monthly", "endpoints", "methods"]:
+            data[key] = dict(data[key])
 
-        with open(self.REQUEST_DATA_FILE, 'w') as f:
+        with open(REQUEST_STATS_FILE, 'w') as f:
             json.dump(data, f, indent=2)
 
     def record_request(self, incretype=""):
         # Load existing data
-
         req_d = self._load_request_data()
 
         # Get current date info

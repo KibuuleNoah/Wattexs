@@ -1,7 +1,7 @@
 import os, json
 from flask import Blueprint, current_app, jsonify, render_template
 
-from .utils import RequestTracker
+from .utils import RequestTracker, REQUEST_STATS_FILE
 
 views = Blueprint("views", __name__)
 
@@ -19,9 +19,6 @@ def index():
     rt.record_request()
 
     return render_template('index.html', backgrounds=json.dumps(backgrounds))
-
-
-STATS_FILE = 'request_stats.json'
 
 
 @views.route('/dashboard')
@@ -43,7 +40,7 @@ def record_download():
 def get_stats():
     """API endpoint to get the statistics data"""
     try:
-        with open(STATS_FILE, 'r') as f:
+        with open(REQUEST_STATS_FILE, 'r') as f:
             data = json.load(f)
             return jsonify(data)
     except (FileNotFoundError, json.JSONDecodeError):
