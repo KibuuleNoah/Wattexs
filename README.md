@@ -2,7 +2,7 @@
 
 A web application that allows users to create custom whatsapp text status on backgrounds and download them as images.
 
-![Screenshot of the application](screenshot.png) _(Note: Add your own screenshot image)_
+<!-- ![Screenshot of the application](screenshot.png) -->
 
 ## Features
 
@@ -54,7 +54,10 @@ A web application that allows users to create custom whatsapp text status on bac
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/Wattexs.git
+git clone https://github.com/KibuuleNoah/Wattexs.git
+```
+
+```bash
 cd Wattexs
 ```
 
@@ -116,11 +119,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contributing
 
 Feel free to fork the repository and submit pull requests. For major changes, please open an issue first to discuss what you would like to change.
-
-## Contact
-
-If you have any questions or feedback, feel free to reach out at [your-email@example.com].---
-
-**Created by** Tristar Moxie  
-**GitHub**: [your-github-profile](https://github.com/your-profile)  
-**Live Demo**: [Demo Link](#) _(Add your live demo link if available)_
