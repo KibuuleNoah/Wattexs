@@ -156,19 +156,61 @@ $(document).ready(function () {
     img.crossOrigin = "Anonymous"; // Handle CORS if needed
     img.onload = function () {
       // Draw image covering entire canvas
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      // ctx.drawImage(img, 0, 0, canvas.width, canvas.height); 
 
       // Add semi-transparent overlay if enabled
-      if ($("#textOverlay").is(":checked")) {
-        ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      if ($("#addBlur").is(":checked")) {
+        ctx.filter = "blur(10px)"; // Adjust px value for more/less blur
+      }else{
+        // Reset filter for further drawing
+        ctx.filter = "none";
       }
+
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height); 
+      // Reset filter for further drawing
+      ctx.filter = "none";
+
+      // Restore context state
+      ctx.restore();
 
       // Redraw text after image loads
       drawText();
     };
     img.src = selectedBgImage;
   }
+
+  /*
+   function drawBackground() {
+  const img = new Image();
+  img.crossOrigin = "Anonymous"; // Handle CORS if needed
+  img.onload = function () {
+    // Save context state
+    ctx.save();
+
+    // Apply blur filter
+    ctx.filter = "blur(10px)"; // Adjust px value for more/less blur
+
+    // Draw blurred image covering entire canvas
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+    // Reset filter for further drawing
+    ctx.filter = "none";
+
+    // Restore context state
+    ctx.restore();
+
+    // Optional: Add subtle overlay for brightness balance
+    if ($("#textOverlay").is(":checked")) {
+      ctx.fillStyle = "rgba(255, 255, 255, 0.2)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // Redraw text after image loads
+    drawText();
+  };
+  img.src = selectedBgImage;
+}
+*/
 
   function drawText() {
     const text = textInput.val();

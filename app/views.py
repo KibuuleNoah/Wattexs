@@ -12,7 +12,7 @@ def index():
                                    'static/imgs/backgrounds/')
     backgrounds = [
         "/static/imgs/backgrounds/" + f for f in os.listdir(backgrounds_dir)
-        if f.endswith(('.jpg', '.jpeg'))
+        if f.endswith(('.webp'))
     ]
 
     rt = RequestTracker()
