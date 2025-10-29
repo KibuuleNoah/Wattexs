@@ -26,6 +26,12 @@ def dashboard():
     """Render the dashboard"""
     return render_template('dashboard.html')
 
+@views.route("/life")
+def life():
+    """To Be Called by the cron job; !!!DON'T REMOVE THIS"""
+    return jsonify({})
+
+
 
 @views.route("/api/record/download")
 def record_download():
